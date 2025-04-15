@@ -41,7 +41,7 @@ You can use shadyquant to plot a 95% confidence interval (default):
 
 ```py
 import sq
-sq.traj_quantile(traj)
+sq.traj_quantile(x, traj)
 ```
 ![image](https://user-images.githubusercontent.com/908389/163302155-c78fc4c6-caf6-487f-b632-5fda3d9c3fba.png)
 
@@ -49,7 +49,7 @@ sq.traj_quantile(traj)
 You can also do weighted quantiling, if you have weights attached to each line
 
 ```py
-sq.traj_quantile(traj, weights=w)
+sq.traj_quantile(x, traj, weights=w)
 ```
 
 ![image](https://user-images.githubusercontent.com/908389/163302172-e3ae6143-aecd-48cb-bb7a-1259e760efeb.png)
@@ -59,7 +59,7 @@ You may want to do fancy shading, which just plots a series of quantiles as poly
 a nice blending. The outer edges of the polygons still correspond to the 95% confidence interval.
 
 ```py
-sq.traj_quantile(traj, fancy_shading=True)
+sq.traj_quantile(x, traj, fancy_shading=True)
 ```
 
 ![image](https://user-images.githubusercontent.com/908389/163302179-cec09ee7-c870-48be-abcd-5575f15c7a31.png)
@@ -71,6 +71,7 @@ Here are some further options you can modify:
 plt.figure(figsize=(8, 3))
 ax = plt.gca()
 sq.traj_quantile(
+    x,
     traj,
     ax=ax,
     fancy_shading=True,

@@ -23,6 +23,7 @@ def weighted_quantile(values, quantiles, sample_weight=None):
 
 
 def traj_quantile(
+    x,
     trajs,
     weights=None,
     means=False,
@@ -43,7 +44,6 @@ def traj_quantile(
     if ax is None:
         ax = plt.gca()
     w /= np.sum(w)
-    x = range(trajs.shape[1])
     fancy_lower_q_bounds = np.linspace(lower_q_bound, 0.5, levels)
     fancy_higher_q_bounds = 1 - fancy_lower_q_bounds
     for n in range(levels):
